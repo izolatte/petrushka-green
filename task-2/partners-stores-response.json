@@ -1,0 +1,67 @@
+{
+  "data": [
+    {
+      "id": "metro",
+      "partnerName": "METRO",
+      "logoUrl": "https://cdn.petrushka-green.ru/partners/metro.png",
+      "delivery": {
+        "type": "time_slot",
+        "title": "Ближайшая доставка",
+        "dayLabel": "сегодня",
+        "slot": {
+          "from": "21:00",
+          "to": "23:00"
+        },
+      },
+      "externalUrl": "https://online.metro-cc.ru"
+    },
+    {
+      "id": "auchan",
+      "partnerName": "Ашан",
+      "logoUrl": "https://cdn.petrushka-green.ru/partners/auchan.png",
+      "delivery": {
+        "type": "time_slot",
+        "title": "Ближайшая доставка",
+        "dayLabel": "сегодня",
+        "slot": {
+          "from": "18:00",
+          "to": "20:00"
+        },
+      },
+      "externalUrl": "https://www.auchan.ru/"
+    },
+    {
+      "id": "vkusvill",
+      "partnerName": "ВкусВилл",
+      "logoUrl": "https://cdn.petrushka-green.ru/partners/vkusvill.png",
+      "delivery": {
+        "type": "fast_delivery",
+        "title": "Быстрая доставка",
+        "etaMinutes": {
+          "from": 20,
+          "to": 60
+        },
+      },
+      "externalUrl": "https://vkusvill.ru/"
+    },
+    {
+      "id": "victoria",
+      "partnerName": "ВИКТОРИЯ",
+      "logoUrl": "https://cdn.petrushka-green.ru/partners/victoria.png",
+      "delivery": {
+        "type": "time_slot",
+        "title": "Ближайшая доставка",
+        "dayLabel": "сегодня",
+        "slot": {
+          "from": "17:00",
+          "to": "19:00"
+        },
+      },
+      "externalUrl": "https://victoria.example.com/"
+    }
+  ],
+  "meta": {
+    "updatedAt": "2026-01-15T19:00:00Z",
+    "timezone": "Europe/Moscow"
+  }
+}
