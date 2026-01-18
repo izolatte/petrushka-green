@@ -55,7 +55,7 @@
    - проще, но хуже масштабируется  
    - подходит для небольших систем 
 
-### Notification Service
+### Notification Builder
 Центральный компонент, который принимает события и решает “отправляем пуш или нет”.
 
 **Как реализуется:** отдельный микросервис в составе подсистемы уведомлений.
@@ -67,9 +67,9 @@
   - какая категория (сервисный / маркетинговый)
   - quiet hours (если есть)  
 - формирует текст пуша (возможно по шаблону и локализации)
-- создаёт задачу на отправку и кладёт её в очередь (Send Queue)
+- создаёт задачу на отправку и кладёт её в очередь (Notification Pull Service)
 
-### Send Queue Service
+### Notification Pull Service
 Очередь задач на отправку пушей.
 Нужна для:
 - устойчивости если много событий, чтобы не падать от нагрузки
@@ -100,8 +100,8 @@ flowchart LR
   Bus["Event Bus<br/>(Kafka / RabbitMQ)"]
   Scheduler["Scheduler<br/>(отложенные события)"]
 
-  Notif["Notification Service<br/>(правила + текст пуша)"]
-  Queue["Send Queue<br/>(очередь отправки)"]
+  Notif["Notification Builder<br/>(правила + текст пуша)"]
+  Pull["Notification Pull Service<br/>(очередь отправки)"]
   Sender["Push Sender"]
   Providers["PUSH Providers<br/>(FCM / APNs)"]
 
@@ -113,8 +113,8 @@ flowchart LR
   Scheduler -->|"событие в нужный момент"| Notif
 
   Notif --> TokenStore
-  Notif -->|"задача на отправку"| Queue
-  Queue --> Sender
+  Notif -->|"задача на отправку"| Pull
+  Pull --> Sender
   Sender --> Providers
   Providers --> App
 
